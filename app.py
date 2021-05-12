@@ -27,12 +27,12 @@ while True:
 
 print(f'mydb : {mydb}')
 
-# mycursor = mydb.cursor()
-# mycursor.execute("SELECT * FROM employees")
-# myresult = mycursor.fetchall()
+mycursor = mydb.cursor()
+mycursor.execute("SELECT * FROM employees")
+myresult = mycursor.fetchall()
 
-# for x in myresult:
-#   print(x)
+for x in myresult:
+  print(x)
 
 
 print(f' ########### hello python end -{now}-')

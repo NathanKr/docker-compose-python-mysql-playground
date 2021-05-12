@@ -2,7 +2,9 @@ version: '3.4'
 
 services:
   dc_app_service:
+
     image: dc_app_image
+    
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -13,18 +15,20 @@ services:
     
   dc_db_service:
     image: mysql 
-    command: --default-authentication-plugin=mysql_native_password # check https://stackoverflow.com/q/64369235/1939526
+
+    volumes:
+      # following cp sql script and start them once per container lifetime
+      - ./database/init:/docker-entrypoint-initdb.d
+
+    command: --default-authentication-plugin=mysql_native_password
     # container_name: dc_db_container --> why am i getting error here
+
     environment: 
-      MYSQL_DATABASE: 'db1' # is this db created ??
+      MYSQL_DATABASE: 'db1' # this db is created
       # todo use user and its password
       MYSQL_ROOT_PASSWORD: '123abc'
+
     ports:
       - '3306:3306'
     
-    # volumes:
-      # is it a must ???????????
-      # - my-db:/var/lib/mysql
-
-volumes: 
-  my-db:      
+       
