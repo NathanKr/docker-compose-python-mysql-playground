@@ -5,7 +5,7 @@ Experiment with two docker containers application using docker compose : one con
 <h2>Functionality</h2>
 <ul>
 <li>The database is db1 and it has an employees table with two rows - this is created with sql script install_db.sql upon image creating</li>
-<li>the python app wait for the connection to the database and then list rows of table employees</li>
+<li>the python app wait for the connection to the database and then list rows of table employees. you can view this using e.g docker desktop</li>
 </ul>
 
 
