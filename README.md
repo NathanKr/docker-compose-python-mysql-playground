@@ -44,7 +44,6 @@ Experiment with two docker containers application using docker compose : one con
 <h2>production todo</h2>
 <ul>
     <li>use regular user instead of root when accessing the DB in app.py</li>
-    <li>move user , password , db name (check e.g. in app.py) .... to config file </li>
 </ul>
 
 
