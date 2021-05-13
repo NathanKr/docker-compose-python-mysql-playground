@@ -1,6 +1,8 @@
 from datetime import datetime
 import mysql.connector
 import time
+import os
+
 
 
 now = datetime.now()
@@ -14,8 +16,8 @@ while True:
       # host is db container name !!!
       host= 'docker-compose-python-mysql-playground_dc_db_service_1', 
       user = "root",
-      password="123abc",
-      database = 'db1'
+      password=os.getenv('MYSQL_ROOT_PASSWORD'),
+      database = os.getenv('MYSQL_DATABASE')
     )   
     print('connected to the db')
     break

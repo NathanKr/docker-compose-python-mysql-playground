@@ -33,6 +33,7 @@ Experiment with two docker containers application using docker compose : one con
     <li>Dockerfile was created on bootstrap\scafolded docker project and it handles the creation of the python image and container. This was very helpful</li>
     <li>docker-compose.yml was created on bootstrap\scafolded docker project but i have made few changes there , all related to the DB service</li>
     <li>the python app access MySQL DB thus order is important. MySQL DB should be invoked before the app and this is done using depends_on: but it is not enough. the app needs to wait for the DB to be ready. the <a href='https://github.com/eficode/wait-for'>following repo</a> can help on this <a href='https://www.youtube.com/watch?v=xXXM7av2W_g'>check here 21:14</a>but according to docker documentation it is better to implement this in code so i have a loop in app.py waiting for the DB to be ready</li>
+    <li>the db name and root password must be os environment variable because this is what mysql needs. this is done cleanly via compose environment: . these variable are read using os.getenv in app.py </li>
 </ul>
 
 <h2>Open issues</h2>
