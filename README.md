@@ -19,7 +19,8 @@ Experiment with two docker containers application using docker compose : one con
 
 <h2>Tools</h2>
 <ul>
-<li>vscode</li>
+<li><a href='https://docs.docker.com/get-docker/https://docs.docker.com/get-docker/'>Docker</a></li>
+<li><a href='https://code.visualstudio.com/'>vscode</a></li>
 <li><a href='https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker'>The vscode Docker extension </a> is used to bootstrap\scafolded docker project but can be used also to handle containers and images</li>
 <li>to view that the db\tables\rows are created i have used <a href='https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2'>cool database client vscode extension</a> which can access according to its docs few types of databases </li>
 <li>to view images\containers i have used <a href='https://hub.docker.com/editions/community/docker-ce-desktop-windows'>Docker Desktop for Windows</a> this is part of docker</li>
