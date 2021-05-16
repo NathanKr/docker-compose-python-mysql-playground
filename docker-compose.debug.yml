@@ -1,11 +1,53 @@
+# original 
 # version: '3.4'
 
 # services:
-#   dockercomposepythonmysqlplayground:
-#     image: dockercomposepythonmysqlplayground
+#   dc_app_service:
+#     image: dc_app_image
 #     build:
 #       context: .
 #       dockerfile: ./Dockerfile
 #     command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 app.py "]
 #     ports:
 #       - 5678:5678
+
+
+version: '3.4'
+
+services:
+  dc_app_service:
+
+    image: dc_app_image
+    
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 app.py "]
+
+    ports:
+        - 5678:5678
+      # container_name: dc_app_container --> why am i getting error here
+  
+    depends_on: 
+      - dc_db_service
+    
+  dc_db_service:
+    image: mysql 
+
+    volumes:
+      # following cp sql script and start them once per container lifetime
+      - ./database/init:/docker-entrypoint-initdb.d
+
+    command: --default-authentication-plugin=mysql_native_password
+    # container_name: dc_db_container --> why am i getting error here
+
+    # os environment variables : use by mysql server and in app.py
+    environment:  
+      MYSQL_DATABASE: 'db1' # this db is created
+      # todo use user and its password
+      MYSQL_ROOT_PASSWORD: '123abc'
+
+    ports:
+      - '3306:3306'
+    
+       

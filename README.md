@@ -39,7 +39,7 @@ Experiment with two docker containers application using docker compose : one con
 
 <h2>Open issues</h2>
 <ul>
-    <li>following the bootstrap\scafolded docker project a docker-compose.yml and docker-compose.debug.yml is created. later i have changed docker-compose.yml and did not know what to do with it so i have remarked it ---> question is what to do with docker-compose.debug.yml when docker-compose.yml is changed</li>
+    <li>following the bootstrap\scafolded docker project a docker-compose.yml and docker-compose.debug.yml is created. Thus using F5 you can debug the python app but MySQL is not invoked !!!</li>
 </ul>
 
 <h2>production todo</h2>
